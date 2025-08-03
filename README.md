@@ -1,50 +1,131 @@
-# Welcome to your Expo app 👋
+# MovieFlix
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+MovieFlix is a React Native application that allows users to browse, save, and manage their favorite movies. The app integrates with Clerk for authentication, Appwrite for backend services, and Jotai for state management. It provides a seamless experience for signed-in users to view and manage their saved movies.
 
-## Get started
+---
 
-1. Install dependencies
+## Features
+
+- **Authentication**: Sign in and sign up functionality powered by Clerk.
+- **Saved Movies**: View and manage a list of saved movies.
+- **Responsive UI**: Optimized for mobile devices with React Native components.
+- **Global State Management**: Lightweight state management using Jotai.
+- **Dynamic Navigation**: Navigate between pages using Expo Router.
+- **Backend Services**: Appwrite powers the database and API functionality, while Clerk manages authentication.
+
+---
+
+## 📱 Screenshots
+
+<div align="center">
+  <img src="@/assets/screenshots/home.jpg" width="200" />
+  <img src="@/assets/screenshots/saved.jpg" width="200" />
+</div>
+
+---
+
+## 🧰 Tech Stack
+
+- **React Native**: Framework for building mobile applications.
+- **Expo**: Development platform for React Native apps.
+- **Jotai**: Lightweight state management library.
+- **Clerk**: Authentication and user management.
+- **Appwrite**: Backend services for database and API management.
+- **TypeScript**: Strongly typed programming language.
+
+---
+
+## Installation
+
+1. Clone the repository:
 
    ```bash
+   git clone https://github.com/your-username/movieflix.git
+
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd movieflix
+   ```
+
+3. Install dependencies:
+
    npm install
-   ```
 
-2. Start the app
+4. Start the development server:
 
-   ```bash
-   npx expo start
-   ```
+   npm start
 
-In the output, you'll find options to open the app in a
+---
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+movieflix/
+├── app/ # Contains the main application pages
+│ ├── (tabs)/ # Folder for tab-based navigation pages
+│ │ ├── saved.tsx # Saved movies page
+│ │ └── other-pages.tsx # Other pages (e.g., browse, profile)
+│ └── index.tsx # Entry point for the app
+├── components/ # Reusable UI components
+│ ├── SavedMovieCard.tsx # Component for displaying individual saved movies
+│ └── OtherComponent.tsx # Other reusable components (e.g., buttons, modals)
+├── constants/ # Application-wide constants
+│ ├── icons.ts # Icon constants used throughout the app
+│ └── colors.ts # Color palette for consistent styling
+├── services/ # Backend and state management logic
+│ ├── savedMoviesAtom.ts # Jotai atoms for managing saved movies state
+│ ├── api.ts # API service functions for interacting with external APIs
+│ └── appwrite.ts # Appwrite integration for backend services
+├── assets/ # Static assets like images and fonts
+│ ├── icons/ # Folder for app icons
+│ └── images/ # Folder for app images
+├── .env # Environment variables for API keys and configuration
+├── README.md
+└── package.json
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+---
 
-## Get a fresh project
+## 🔒 Environment Variables
 
-When you're ready, run:
+Create a `.env` file in the root directory and include:
 
-```bash
-npm run reset-project
+```
+# TMDB
+EXPO_PUBLIC_MOVIE_API_KEY=...
+
+# EXPO
+EXPO_PUBLIC_APPWRITE_PROJECT_ID=...
+EXPO_PUBLIC_APPWRITE_ENDPOINT=...
+EXPO_PUBLIC_APPWRITE_PROJECT_NAME=...
+EXPO_PUBLIC_APPWRITE_DATABASE_ID=...
+EXPO_PUBLIC_APPWRITE_METRICS_COLLECTION_ID=...
+EXPO_PUBLIC_APPWRITE_SAVED_COLLECTION_ID=...
+
+# Clerk
+EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY=...
+
 ```
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 🚀 How to Use
 
-To learn more about developing your project with Expo, look at the following resources:
+- Launch the app using `npm start` (or `npx expo start`)
+- Sign up or log in
+- Browse movies, save your favorites, and view them in the Saved tab
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+---
 
-## Join the community
+## 🧑‍💻 Author
 
-Join our community of developers creating universal apps.
+Built by [**Jai Bhullar**](https://jaibh-portfolio.vercel.app/) – aspiring front-end/full-stack developer based near London.
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- 📫 Email: jaibhullar.developer@outlook.com
+- 🔗 **LinkedIn:** [linkedin.com/in/jai-bhullar-dev](https://www.linkedin.com/in/jai-bhullar-dev)
+- 📄 [View My CV](https://drive.google.com/drive/folders/11INqiG1lzqst5JbgNXueFMdqKZr6JfP9?usp=sharing)
+
+---
+
+## 📝 License
+
+MIT License. Feel free to use, modify, or contribute!

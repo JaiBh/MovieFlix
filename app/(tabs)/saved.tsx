@@ -85,7 +85,7 @@ const saved = () => {
             marginBottom: 10,
           }}
           className="mt-2 pb-32"
-          scrollEnabled={false}
+          contentContainerStyle={{ paddingBottom: 100 }}
         ></FlatList>
       </SignedIn>
     </View>

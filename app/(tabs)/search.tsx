@@ -47,7 +47,6 @@ const Search = () => {
         data={movies}
         renderItem={({ item }) => <MovieCard {...item}></MovieCard>}
         keyExtractor={(item) => item.id.toString()}
-        className="px-5"
         numColumns={3}
         ListEmptyComponent={
           !moviesLoading && !moviesError ? (
@@ -61,7 +60,6 @@ const Search = () => {
         columnWrapperStyle={{
           justifyContent: "flex-start",
           gap: 16,
-          marginVertical: 16,
         }}
         contentContainerStyle={{ paddingBottom: 100 }}
         ListHeaderComponent={
