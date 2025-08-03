@@ -18,8 +18,8 @@ MovieFlix is a React Native application that allows users to browse, save, and m
 ## 📱 Screenshots
 
 <div align="center">
-  <img src="@/assets/screenshots/home.jpg" width="200" />
-  <img src="@/assets/screenshots/saved.jpg" width="200" />
+  <img src="./assets/screenshots/home.jpg" width="200" />
+  <img src="./assets/screenshots/saved.jpg" width="200" />
 </div>
 
 ---
@@ -60,6 +60,7 @@ MovieFlix is a React Native application that allows users to browse, save, and m
 
 ---
 
+```
 movieflix/
 ├── app/ # Contains the main application pages
 │ ├── (tabs)/ # Folder for tab-based navigation pages
@@ -82,6 +83,7 @@ movieflix/
 ├── .env # Environment variables for API keys and configuration
 ├── README.md
 └── package.json
+```
 
 ---
 
