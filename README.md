@@ -18,8 +18,8 @@ MovieFlix is a React Native application that allows users to browse, save, and m
 ## 📱 Screenshots
 
 <div align="center">
-  <img src="./assets/screenshots/home.jpg" width="200"/>
-  <img src="./assets/screenshots/saved.jpg" width="200" />
+  <img src="./assets/screenshots/home.jpg" width="200" height="400"/>
+  <img src="./assets/screenshots/saved.jpg" width="200" height="400"/>
 </div>
 
 ---
