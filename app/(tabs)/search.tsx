@@ -48,6 +48,7 @@ const Search = () => {
         renderItem={({ item }) => <MovieCard {...item}></MovieCard>}
         keyExtractor={(item) => item.id.toString()}
         numColumns={3}
+        className="px-3"
         ListEmptyComponent={
           !moviesLoading && !moviesError ? (
             <View className="mt-10 px-5">

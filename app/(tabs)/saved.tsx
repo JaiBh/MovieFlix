@@ -30,7 +30,7 @@ const saved = () => {
   }, [userId]);
 
   return (
-    <View className="bg-primary flex-1 px-5">
+    <View className="bg-primary flex-1 px-3">
       <SignedOut>
         <View className="flex justify-center items-center flex-1 flex-col gap-5">
           <Image
@@ -61,7 +61,7 @@ const saved = () => {
       <SignedIn>
         <Image
           source={icons.logo}
-          className="w-12 h-10 mt-20 mb-5 mx-auto"
+          className="w-12 h-10 mt-20 mb-10 mx-auto"
         ></Image>
         <FlatList
           data={savedMovies}
@@ -80,11 +80,10 @@ const saved = () => {
           numColumns={3}
           columnWrapperStyle={{
             justifyContent: "flex-start",
+            paddingRight: 5,
             gap: 20,
-
             marginBottom: 10,
           }}
-          className="mt-2 pb-32"
           contentContainerStyle={{ paddingBottom: 100 }}
         ></FlatList>
       </SignedIn>

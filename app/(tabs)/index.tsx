@@ -35,7 +35,7 @@ export default function Index() {
     <View className="flex-1 bg-primary">
       <Image source={images.bg} className="absolute w-full z-0"></Image>
       <ScrollView
-        className="flex-1 px-5"
+        className="flex-1 px-3"
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ minHeight: "100%", paddingBottom: 10 }}
       >
@@ -67,6 +67,9 @@ export default function Index() {
                 <FlatList
                   horizontal
                   showsHorizontalScrollIndicator={false}
+                  contentContainerStyle={{
+                    paddingRight: 20,
+                  }}
                   ItemSeparatorComponent={() => <View className="w-8"></View>}
                   data={trendingMovies}
                   className="mb-4 mt-3"
@@ -90,6 +93,9 @@ export default function Index() {
                 renderItem={({ item }) => <MovieCard {...item}></MovieCard>}
                 keyExtractor={(item) => item.id}
                 numColumns={3}
+                contentContainerStyle={{
+                  paddingRight: 5,
+                }}
                 columnWrapperStyle={{
                   justifyContent: "flex-start",
                   gap: 20,
