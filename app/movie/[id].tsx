@@ -1,8 +1,16 @@
+import ToggleSave from "@/components/ToggleSave";
 import { icons } from "@/constants/icons";
 import { fetchMovieDetails } from "@/services/api";
 import useFetch from "@/services/useFetch";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import {
+  ActivityIndicator,
+  Image,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 interface MovieInfoProps {
   label: string;
@@ -25,10 +33,23 @@ const MovieDetails = () => {
     fetchMovieDetails(id as string)
   );
 
+  if (loading) {
+    return (
+      <View className="flex-1 bg-primary items-center justify-center">
+        <ActivityIndicator size={48}></ActivityIndicator>
+      </View>
+    );
+  }
+
+  // if (!movie && !loading) {
+  //   router.push("/");
+  //   return null;
+  // }
+
   return (
     <View className="bg-primary flex-1">
       <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
-        <View>
+        <View className="relative">
           <Image
             source={{
               uri: `https://image.tmdb.org/t/p/w500${movie?.poster_path}`,
@@ -36,6 +57,9 @@ const MovieDetails = () => {
             className="w-full h-[550px]"
             resizeMode="stretch"
           ></Image>
+          <View className="absolute bottom-3 right-3">
+            <ToggleSave movie={movie!}></ToggleSave>
+          </View>
         </View>
         <View className="flex-col items-start justify-center mt-5 px-5">
           <Text className="text-white font-bold text-xl">{movie?.title}</Text>

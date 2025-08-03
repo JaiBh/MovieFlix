@@ -3,7 +3,7 @@ import SearchBar from "@/components/SearchBar";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
 import { fetchMovies } from "@/services/api";
-import { updateSearchCount } from "@/services/appwrite";
+import { updateTrendingMovies } from "@/services/appwrite";
 import useFetch from "@/services/useFetch";
 import { useEffect, useState } from "react";
 import { ActivityIndicator, FlatList, Image, Text, View } from "react-native";
@@ -32,7 +32,7 @@ const Search = () => {
 
   useEffect(() => {
     if (movies?.length > 0 && movies?.[0]) {
-      updateSearchCount(searchQuery, movies[0]);
+      updateTrendingMovies(movies[0]);
     }
   }, [movies]);
 
@@ -59,7 +59,7 @@ const Search = () => {
           ) : null
         }
         columnWrapperStyle={{
-          justifyContent: "center",
+          justifyContent: "flex-start",
           gap: 16,
           marginVertical: 16,
         }}

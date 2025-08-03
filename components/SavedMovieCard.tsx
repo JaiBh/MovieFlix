@@ -1,9 +1,17 @@
 import { icons } from "@/constants/icons";
+import { toggleSaveMovie } from "@/services/appwrite";
+import { useAuth } from "@clerk/clerk-expo";
+import { FontAwesome } from "@expo/vector-icons";
 import { Link } from "expo-router";
+import { useState } from "react";
 import { Image, Text, TouchableOpacity, View } from "react-native";
-import ToggleSave from "./ToggleSave";
 
-const MovieCard = (movie: Movie) => {
+interface Props {
+  movie: Movie;
+  fetchSavedMovies: (userId: string) => Promise<void>;
+}
+
+const SavedMovieCard = ({ movie, fetchSavedMovies }: Props) => {
   const { id, title, poster_path, vote_average, release_date } = movie;
 
   const rating = Array.from(
@@ -37,10 +45,48 @@ const MovieCard = (movie: Movie) => {
           <Text className="text-xs font-medium text-light-300">Movie</Text>
         </View>
         <View className="absolute top-2 right-2">
-          <ToggleSave movie={movie}></ToggleSave>
+          <ToggleSave
+            movie={movie}
+            fetchSavedMovies={fetchSavedMovies}
+          ></ToggleSave>
         </View>
       </TouchableOpacity>
     </Link>
   );
 };
-export default MovieCard;
+export default SavedMovieCard;
+
+const ToggleSave = ({
+  movie,
+  fetchSavedMovies,
+}: {
+  movie: Movie | MovieDetails;
+  fetchSavedMovies: (userId: string) => Promise<void>;
+}) => {
+  const { userId, isLoaded } = useAuth();
+  const [saved, setSaved] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  const handlePress = async () => {
+    try {
+      setLoading(true);
+      setSaved(false);
+      await toggleSaveMovie(movie, userId!);
+      await fetchSavedMovies(userId!);
+    } catch (err) {
+      setSaved(true);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <TouchableOpacity onPress={handlePress} disabled={loading || !isLoaded}>
+      <FontAwesome
+        name={saved ? "heart" : "heart-o"}
+        color={saved ? "red" : "white"}
+        size={24}
+      ></FontAwesome>
+    </TouchableOpacity>
+  );
+};

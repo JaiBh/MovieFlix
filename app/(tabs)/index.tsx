@@ -72,7 +72,10 @@ export default function Index() {
                   className="mb-4 mt-3"
                   keyExtractor={(item) => item.movie_id.toString()}
                   renderItem={({ item, index }) => (
-                    <TrendingCard movie={item} index={index}></TrendingCard>
+                    <TrendingCard
+                      trendingMovie={item}
+                      index={index}
+                    ></TrendingCard>
                   )}
                 ></FlatList>
               </View>
