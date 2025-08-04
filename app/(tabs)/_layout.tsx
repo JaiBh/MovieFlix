@@ -1,6 +1,10 @@
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
+import { fetchSavedMoviesAtom } from "@/services/savedMoviesAtom";
+import { useAuth } from "@clerk/clerk-expo";
 import { Tabs } from "expo-router";
+import { useAtom } from "jotai";
+import { useEffect } from "react";
 import { Image, ImageBackground, Text, View } from "react-native";
 
 interface TabIconProps {
@@ -10,6 +14,15 @@ interface TabIconProps {
 }
 
 const TabIcon = ({ route, icon, focused }: TabIconProps) => {
+  const { userId } = useAuth();
+  const [, fetchSavedMovies] = useAtom(fetchSavedMoviesAtom);
+
+  useEffect(() => {
+    if (userId) {
+      fetchSavedMovies(userId);
+    }
+  }, [userId]);
+
   if (focused) {
     return (
       <ImageBackground

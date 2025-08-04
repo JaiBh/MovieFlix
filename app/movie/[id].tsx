@@ -41,14 +41,17 @@ const MovieDetails = () => {
     );
   }
 
-  // if (!movie && !loading) {
-  //   router.push("/");
-  //   return null;
-  // }
+  if (!loading && !movie) {
+    return (
+      <View>
+        <Text>Something went wrong...</Text>
+      </View>
+    );
+  }
 
   return (
     <View className="bg-primary flex-1">
-      <ScrollView contentContainerStyle={{ paddingBottom: 80 }}>
+      <ScrollView contentContainerStyle={{ paddingBottom: 120 }}>
         <View className="relative">
           <Image
             source={{
@@ -83,23 +86,31 @@ const MovieDetails = () => {
             label="Genres"
             value={movie?.genres?.map((g) => g.name).join(" - ") || "N/A"}
           ></MovieInfo>
-          <View className="flex flex-row justify-between w-1/2">
+          <View className="flex flex-row gap-12">
             <MovieInfo
               label="Budget"
-              value={`$${(movie?.budget || 0) / 1_000_000} million`}
+              value={
+                movie!.budget > 0
+                  ? `$${(movie?.budget || 0) / 1_000_000} million`
+                  : "TBD"
+              }
             ></MovieInfo>
             <MovieInfo
               label="Revenue"
-              value={`$${(Math.round(movie?.revenue || 0) / 1_000_000).toFixed(
-                2
-              )} million`}
+              value={
+                movie!.revenue > 0
+                  ? `$${(Math.round(movie?.revenue || 0) / 1_000_000).toFixed(
+                      2
+                    )} million`
+                  : "TBD"
+              }
             ></MovieInfo>
           </View>
           <MovieInfo
             label="Production Companies"
             value={
               movie?.production_companies.map((c) => c.name).join(" - ") ||
-              "N/A"
+              "TBD"
             }
           ></MovieInfo>
         </View>

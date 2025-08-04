@@ -63,6 +63,10 @@ const saved = () => {
           source={icons.logo}
           className="w-12 h-10 mt-20 mb-10 mx-auto"
         ></Image>
+        <Text className="text-white text-center font-semibold mb-10">
+          Saved Movies
+        </Text>
+
         <FlatList
           data={savedMovies}
           ListEmptyComponent={
