@@ -15,6 +15,7 @@ import {
   Text,
   View,
 } from "react-native";
+// STUFF STUFF STUFF
 
 export default function Index() {
   const router = useRouter();
