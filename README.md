@@ -24,6 +24,14 @@ MovieFlix is a React Native application that allows users to browse, save, and m
 
 ---
 
+## 🎥 Demo
+
+Watch a short video walkthrough of the app in action:
+
+👉 [YouTube Shorts – MovieFlix App Demo](https://www.youtube.com/shorts/_XT4F4Dq1_c)
+
+---
+
 ## 🧰 Tech Stack
 
 - **React Native**: Framework for building mobile applications.
